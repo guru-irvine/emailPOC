@@ -1,6 +1,22 @@
-# EmailManager.Java
+# Email Manager
 
 A Java application for managing emails using the Microsoft Graph API. This application allows you to download emails, view conversation threads, and reply to emails.
+
+## Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/guru-irvine/emailPOC.git
+cd emailPOC/EmailManager
+
+# Copy and edit configuration
+cp run.sh.example run.sh
+nano run.sh  # Add your Azure AD credentials
+
+# Build and run
+chmod +x run.sh
+./run.sh
+```
 
 ## Prerequisites
 
@@ -11,6 +27,14 @@ A Java application for managing emails using the Microsoft Graph API. This appli
   - Client ID
   - Client Secret
   - Tenant ID
+
+### Required Microsoft Graph API Permissions
+
+Your Azure AD application needs these permissions:
+- `Mail.Read`
+- `Mail.ReadWrite`
+- `Mail.Send`
+- `User.Read`
 
 ## Setup
 
@@ -92,9 +116,6 @@ EmailManager.Java/
 │               └── emailmanager/
 │                   └── services/
 │                       └── EmailStorageServiceTest.java
-├── emails/
-│   ├── emails.csv              # Email metadata storage
-│   └── storage/               # Email content storage (.eml files)
 ├── pom.xml
 └── README.md
 ```
@@ -124,6 +145,35 @@ EmailManager.Java/
   - Headers (From, Subject, Date, etc.)
   - Message IDs and References
   - Conversation threading information
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Authentication Failed**
+   - Verify your Azure AD credentials in config.json or environment variables
+   - Check if your Azure AD application has the required permissions
+   - Ensure the permissions are admin-consented if required
+
+2. **Email Download Issues**
+   - Check your internet connection
+   - Verify the user email address matches the authenticated account
+   - Ensure the mailbox is accessible
+
+3. **Build Failures**
+   - Ensure Java 17 or later is installed: `java -version`
+   - Verify Maven installation: `mvn -version`
+   - Try cleaning the project: `mvn clean`
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Notes
 
