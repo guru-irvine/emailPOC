@@ -1,0 +1,29 @@
+# Local configuration script
+run.sh
+
+# Maven build directory
+target/
+
+# Logs
+logs/
+*.log
+
+# Application data
+emails/
+
+# IDE files
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db 

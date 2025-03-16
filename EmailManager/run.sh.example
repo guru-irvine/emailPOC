@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Azure AD Application Configuration
+# Replace these values with your actual credentials
+export EMAIL_MANAGER_CLIENT_ID="your-client-id-here"
+export EMAIL_MANAGER_CLIENT_SECRET="your-client-secret-here"
+export EMAIL_MANAGER_TENANT_ID="your-tenant-id-here"
+export EMAIL_MANAGER_USER_EMAIL="your-email@domain.com"
+
+# Check if the JAR exists
+if [ ! -f "target/emailmanager.jar" ]; then
+    echo "Building the application..."
+    mvn clean package
+fi
+
+# Run the application
+java -jar target/emailmanager.jar 
